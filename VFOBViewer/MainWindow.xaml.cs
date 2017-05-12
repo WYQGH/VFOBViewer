@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -206,9 +207,8 @@ namespace VFOBViewer
 
             string savePath = FileDirDialog_NeedFOB.SaveFileDialog("选择保存文件位置...", "VFOB目录|*.vfob");
             if (string.IsNullOrWhiteSpace(savePath)) return;
-            List<string> ldirs = dirs.ToList();
-            ldirs.RemoveAt(0);
-            WYQDoNet.DoNet.IO.DirectoryTools.DirectoryUtils.SaveDirFilesBinFile(dirs[0], ldirs.ToArray(), savePath);
+            
+            WYQDoNet.DoNet.IO.DirectoryTools.DirectoryUtils.SaveDirFilesBinFile(@"Root:\",dirs, savePath);
 
             MessageBox.Show("序列化完成!!!");
         }
