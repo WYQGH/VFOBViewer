@@ -9,9 +9,7 @@
         Title="VFOB查看器" Height="600" Width="860" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="FileBrowser.ico" ResizeMode="CanMinimize" >
     <Window.ContextMenu>
         <ContextMenu>
-            <Button  Content="搜  索" Width="48"  Height="20"  FontSize="12" Padding="0" Foreground="#FF00D8FF" BorderBrush="#FFD3CD0E" Background="{x:Null}"  HorizontalAlignment="Left" Click="Button_Search_Click" />
-            <Separator/>
-            <Button  Content="搜  索" Width="48"  Height="20"  FontSize="12" Padding="0" Foreground="#FF00D8FF" BorderBrush="#FFD3CD0E" Background="{x:Null}"  HorizontalAlignment="Left" Click="Button_Search_Click" />
+            
         </ContextMenu>
     </Window.ContextMenu>
     <Grid>
