@@ -39,13 +39,16 @@ namespace VFOBViewer
             this.fileObj = fileObj;
             TextBox_Name.Text = FileInfo.Name;
             if (fm.IsFile)
-                Label_Length.Content = WYQDoNet.DoNet.Base.String.StringTools.ConvertBytes(FileInfo.Length, 2);
+                Label_Length.Content = WYQDoNet.DoNet.Base.StringUtils.StringTools.ConvertBytes(FileInfo.Length, 2);
             else
             {
                 Label_Length.Content = fileObj.GetDirFileModels(fm.FullPath).Length + "文件";
             }
             SetImage();
-            this.ToolTip = "创建日期：" + FileInfo.CreationTime + Environment.NewLine + "访问日期：" + FileInfo.LastAccessTime + Environment.NewLine + "修改日期：" + FileInfo.LastWriteTime;
+            this.ToolTip = "创建日期：" + FileInfo.CreationTime + Environment.NewLine + 
+                "访问日期：" + FileInfo.LastAccessTime + Environment.NewLine + 
+                "修改日期：" + FileInfo.LastWriteTime+Environment.NewLine+
+                "路径：" + FileInfo.ParentDirectory; 
         }
 
         public void SetImage()

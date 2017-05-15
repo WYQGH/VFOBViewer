@@ -2270,7 +2270,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Collection.CollectionTools.NameValueCollectionLink(System.Collections.Specialized.NameValueCollection,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.CollectionUtils.CollectionTools.NameValueCollectionLink(System.Collections.Specialized.NameValueCollection,System.String,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
             将NameValueCollection连接成字符串
             </summary>
@@ -2282,19 +2282,19 @@
             <param name="isfooter">nvc是否加在后面</param>
             <returns>返回结果</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetUtcNowDateTime">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNowDateTime">
             <summary>
             返回Utc时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetBeijingNowDateTime">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNowDateTime">
             <summary>
             返回北京时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetUtcNow(System.String,System.Globalization.CultureInfo)">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow(System.String,System.Globalization.CultureInfo)">
             <summary>
             依据指定格式，文化信息，获取Utc时间
             </summary>
@@ -2302,7 +2302,7 @@
             <param name="ci">文化信息</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetBeijingNow(System.String,System.Globalization.CultureInfo)">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow(System.String,System.Globalization.CultureInfo)">
             <summary>
             依据指定格式，文化信息，获取北京时间
             </summary>
@@ -2310,19 +2310,19 @@
             <param name="ci">文化信息</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetUtcNow">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow">
             <summary>
             默认格式，文化信息，获取Utc时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetBeijingNow">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow">
             <summary>
             默认格式，文化信息，获取北京时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetBeijingNow(System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow(System.Int32,System.Char,System.Boolean)">
             <summary>
             返回北京时间
             </summary>
@@ -2331,7 +2331,7 @@
             <param name="left"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetBeijingNow(System.String,System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow(System.String,System.Int32,System.Char,System.Boolean)">
             <summary>
             获取指定宽度的北京时间
             </summary>
@@ -2341,7 +2341,7 @@
             <param name="left">左填充</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetUtcNow(System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow(System.Int32,System.Char,System.Boolean)">
             <summary>
             获取指定宽度的Utc时间
             </summary>
@@ -2350,7 +2350,7 @@
             <param name="left">左填充</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.Date.DateTools.GetUtcNow(System.String,System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow(System.String,System.Int32,System.Char,System.Boolean)">
             <summary>
             获取指定宽度的Utc时间
             </summary>
@@ -2390,6 +2390,170 @@
             <param name="ex">异常</param>
             <returns></returns>
         </member>
+        <member name="T:WYQDoNet.DoNet.Base.PathUtils.PathHelper">
+            <summary>
+            Desktop:C:\Users\WYQ\Desktop
+            Programs:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+            MyDocuments:C:\Users\WYQ\Documents
+            MyDocuments:C:\Users\WYQ\Documents
+            Favorites:C:\Users\WYQ\Favorites
+            Startup:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+            Recent:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Recent
+            SendTo:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\SendTo
+            StartMenu:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Start Menu
+            MyMusic:C:\Users\WYQ\Music
+            MyVideos:C:\Users\WYQ\Videos
+            DesktopDirectory:C:\Users\WYQ\Desktop
+            MyComputer:
+            NetworkShortcuts:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Network Shortcuts
+            Fonts:C:\Windows\Fonts
+            Templates:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Templates
+            CommonStartMenu:C:\ProgramData\Microsoft\Windows\Start Menu
+            CommonPrograms:C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+            CommonStartup:C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+            CommonDesktopDirectory:C:\Users\Public\Desktop
+            ApplicationData:C:\Users\WYQ\AppData\Roaming
+            PrinterShortcuts:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Printer Shortcuts
+            LocalApplicationData:C:\Users\WYQ\AppData\Local
+            InternetCache:C:\Users\WYQ\AppData\Local\Microsoft\Windows\INetCache
+            Cookies:C:\Users\WYQ\AppData\Local\Microsoft\Windows\INetCookies
+            History:C:\Users\WYQ\AppData\Local\Microsoft\Windows\History
+            CommonApplicationData:C:\ProgramData
+            Windows:C:\Windows
+            System:C:\Windows\system32
+            ProgramFiles:C:\Program Files (x86)
+            MyPictures:C:\Users\WYQ\Pictures
+            UserProfile:C:\Users\WYQ
+            SystemX86:C:\Windows\SysWOW64
+            ProgramFilesX86:C:\Program Files (x86)
+            CommonProgramFiles:C:\Program Files (x86)\Common Files
+            CommonProgramFilesX86:C:\Program Files (x86)\Common Files
+            CommonTemplates:C:\ProgramData\Microsoft\Windows\Templates
+            CommonDocuments:C:\Users\Public\Documents
+            CommonAdminTools:C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools
+            AdminTools:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Administrative Tools
+            CommonMusic:C:\Users\Public\Music
+            CommonPictures:C:\Users\Public\Pictures
+            CommonVideos:C:\Users\Public\Videos
+            Resources:C:\Windows\resources
+            LocalizedResources:
+            CommonOemLinks:
+            CDBurning:C:\Users\WYQ\AppData\Local\Microsoft\Windows\Burn\Burn
+            </summary>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetDesktopDirectoryPath">
+            <summary>
+            DesktopDirectory:C:\Users\WYQ\Desktop
+            获取当前用户桌面路径，尾部没有"\"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetCommonDesktopDirectoryPath">
+            <summary>
+            CommonDesktopDirectory:C:\Users\Public\Desktop
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetUserProfilePath">
+            <summary>
+            UserProfile:C:\Users\WYQ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetLocalApplicationDataPath">
+            <summary>
+            LocalApplicationData:C:\Users\WYQ\AppData\Local
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetCommonApplicationDataPath">
+            <summary>
+            CommonApplicationData:C:\ProgramData
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetWindowsPath">
+            <summary>
+            Windows:C:\Windows
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetSystemPath">
+            <summary>
+            System:C:\Windows\system32
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetSystemX86Path">
+            <summary>
+            SystemX86:C:\Windows\SysWOW64
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetProgramFilesX86Path">
+            <summary>
+            ProgramFilesX86:C:\Program Files (x86)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetProgramFilesPath">
+            <summary>
+            ProgramFiles:C:\Program Files
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetFontsPath">
+            <summary>
+            Fonts:C:\Windows\Fonts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyDocumentsPath">
+            <summary>
+            MyDocuments:C:\Users\WYQ\Documents
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyVideosPath">
+            <summary>
+            MyVideos:C:\Users\WYQ\Videos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyMusicPath">
+            <summary>
+            MyMusic:C:\Users\WYQ\Music
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyPicturesPath">
+            <summary>
+            MyPictures:C:\Users\WYQ\Pictures
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetTempPath">
+            <summary>
+            此方法检查是否存在以下顺序的环境变量，并使用找到的第一个路径：
+            由 TMP 环境变量指定的路径。
+            由 TEMP 环境变量指定的路径。
+            由 USERPROFILE 环境变量指定的路径。
+            Windows 目录。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetTempFileName">
+            <summary>
+            此方法创建带 .TMP 文件扩展名的临时文件。 临时文件在用户的 temp 文件夹中创建，是 GetTempPath 方法返回的路径。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetRandomFileName">
+            <summary>
+            GetRandomFileName 方法返回可用作文件夹名或文件名的加密的强随机字符串。 与 GetTempFileName 不同，GetRandomFileName 不创建文件。 当文件系统的安全性非常重要时，应使用此方法而不是 GetTempFileName。
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WYQDoNet.DoNet.Base.RandomUtils.RandomHelper.GetRandomCode(System.Int32,System.Int32)">
             <summary>
             生成一串code
@@ -2407,7 +2571,7 @@
             <param name="max">所有随机数的最大值，不包括该最大值</param>
             <returns>返回随机数数组</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringArrayTools.StringArrayAddString(System.String[],System.String,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringArrayAddString(System.String[],System.String,System.Boolean)">
             <summary>
             对string数组每个元素添加相同的字符串
             </summary>
@@ -2416,7 +2580,7 @@
             <param name="ishead">是否添加在前部</param>
             <returns>返回结果字符串</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringArrayTools.StringArrayLink(System.String[],System.String,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringArrayLink(System.String[],System.String,System.Boolean,System.Boolean)">
             <summary>
             将字符串数组连接成一个字符串，临界点为指定总分
             </summary>
@@ -2426,7 +2590,7 @@
             <param name="isfooter">尾部是否加连接符</param>
             <returns>返回连接后的字符串</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringArrayTools.StringToArrayString(System.String,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringToArrayString(System.String,System.Int32)">
             <summary>
             将字符串转为字符串数组，元素个数相等
             </summary>
@@ -2434,7 +2598,7 @@
             <param name="width">数组元素宽度</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringArrayTools.StringToArrayStringAlign(System.String,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringToArrayStringAlign(System.String,System.Int32)">
             <summary>
             将字符串转为字符串数组，元素显示宽度相等
             </summary>
@@ -2442,7 +2606,7 @@
             <param name="width">数组元素显示宽度</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringTools.StringTrim(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.StringTrim(System.String,System.String)">
             <summary>
             使用参数控制TrimString
             </summary>
@@ -2450,7 +2614,7 @@
             <param name="trimType">l,r,a,n</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringTools.GetRepeatString(System.Int32,System.Char)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.GetRepeatString(System.Int32,System.Char)">
             <summary>
             返回字符重复指定次数字符串
             </summary>
@@ -2458,7 +2622,7 @@
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringTools.GetRepeatString(System.Int32,System.String)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.GetRepeatString(System.Int32,System.String)">
             <summary>
             返回字符串重复指定次数字符串
             </summary>
@@ -2466,14 +2630,14 @@
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringTools.isASCLL(System.Char)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.isASCLL(System.Char)">
             <summary>
             判断字符是否是ascll
             </summary>
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.String.StringTools.isASCLL(System.String)">
+        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.isASCLL(System.String)">
             <summary>
             判断字符串是否全由ascll字符构成
             </summary>
