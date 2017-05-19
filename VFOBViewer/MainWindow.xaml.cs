@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WYQDoNet.DoNet.IO.DirectoryTools;
+
+using WYQDoNet.DoNet.IOUtils.DirectoryUtils;
+using WYQDoNet.DoNet.IOUtils.ObjectUtils;
 
 namespace VFOBViewer
 {
@@ -62,7 +64,7 @@ namespace VFOBViewer
             {
                 ShowDialog = false;
                 FileDirDialog_FOB.TextBoxPath.Text = FOBPath;
-                fob = WYQDoNet.DoNet.IO.ObjectUtils.ObjectSerializationHelper.BinaryDeserialize<FileObj>(FOBPath);
+                fob = ObjectSerializationHelper.BinaryDeserialize<FileObj>(FOBPath);
                 CurrentPath = fob.Root;
             }
             if (ShowDialog)
@@ -85,7 +87,7 @@ namespace VFOBViewer
         private void TextBoxPath_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            fob = WYQDoNet.DoNet.IO.ObjectUtils.ObjectSerializationHelper.BinaryDeserialize<FileObj>(tb.Text);
+            fob = ObjectSerializationHelper.BinaryDeserialize<FileObj>(tb.Text);
 
             CurrentPath = fob.Root;
         }
@@ -208,7 +210,7 @@ namespace VFOBViewer
             string savePath = FileDirDialog_NeedFOB.SaveFileDialog("选择保存文件位置...", "VFOB目录|*.vfob");
             if (string.IsNullOrWhiteSpace(savePath)) return;
             
-            WYQDoNet.DoNet.IO.DirectoryTools.DirectoryUtils.SaveDirFilesBinFile(@"Root:\",dirs, savePath);
+             DirectoryHelper.SaveDirFilesBinFile(@"Root:\",dirs, savePath);
 
             MessageBox.Show("序列化完成!!!");
         }

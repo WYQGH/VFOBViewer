@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WYQDoNet.DoNet.IO.DirectoryTools;
+using WYQDoNet.DoNet.BaseUtils.StringUtils;
+using WYQDoNet.DoNet.IOUtils.DirectoryUtils;
 
 namespace VFOBViewer
 {
@@ -40,7 +41,7 @@ namespace VFOBViewer
             TextBox_Name.Text = FileInfo.Name;
             Label_LastWrite.Content = FileInfo.LastWriteTime;
             if (fm.IsFile)
-                Label_Length.Content = WYQDoNet.DoNet.Base.StringUtils.StringTools.ConvertBytes(FileInfo.Length, 2);
+                Label_Length.Content =  StringHelper.ConvertBytes(FileInfo.Length, 2);
             else
             {
                 Label_Length.Content = fileObj.GetDirFileModels(fm.FullPath).Length + "文件";

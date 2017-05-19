@@ -2264,13 +2264,270 @@
             <param name="includeReturnValueParameter">是否包含返回值参数</param> 
             <returns>返回MySqlParameter参数数组</returns> 
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.AppUtils.AppHelper.GetCurrentApplicationBaseDirectory">
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.GetConnectionString(System.String,System.String,System.Int32)">
+            <summary>  
+            根据数据源、密码、版本号设置连接字符串。  
+            </summary>  
+            <param name="datasource">数据源。</param>  
+            <param name="password">密码。</param>  
+            <param name="version">版本号（缺省为3）。</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.CreateNewDatabase(System.String)">
+            <summary>
+            创建一个空的数据库
+            </summary>
+            <param name="dbPath">数据库文件全路径</param>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.GetConnectionFromNewDatabase(System.String)">
+            <summary>
+            创建一个空的数据库
+            </summary>
+            <param name="dbPath">数据库文件全路径</param>
+            <returns>数据库连接</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.GetConnection(System.String)">
+            <summary>
+            获取数据库连接
+            </summary>
+            <param name="dbPath">数据库文件全路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteNonQuery(System.Data.SQLite.SQLiteConnection,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>   
+            对SQLite数据库执行增删改操作，返回受影响的行数。   
+            </summary>   
+            <param name="connection"></param>
+            <param name="sql">要执行的增删改的SQL语句。</param>   
+            <param name="parameters">执行增删改语句所需要的参数，参数必须以它们在SQL语句中的顺序为准。</param>   
+            <returns></returns>   
+            <exception cref="T:System.Exception"></exception>  
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteNonQueryBatch(System.Data.SQLite.SQLiteConnection,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.Data.SQLite.SQLiteParameter[]}})">
+            <summary>  
+            批量处理数据操作语句。  
+            </summary>  
+            <param name="connection"></param>
+            <param name="list">SQL语句集合。</param>  
+            <exception cref="T:System.Exception"></exception>  
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteScalar(System.Data.SQLite.SQLiteConnection,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>  
+            执行查询语句，并返回第一个结果。  
+            </summary>  
+            <param name="connection"></param>
+            <param name="sql">查询语句。</param>  
+            <returns>查询结果。</returns>  
+            <exception cref="T:System.Exception"></exception>  
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteQuery(System.Data.SQLite.SQLiteConnection,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>   
+            执行一个查询语句，返回一个包含查询结果的DataTable。   
+            </summary>   
+            <param name="connection"></param>
+            <param name="sql">要执行的查询语句。</param>   
+            <param name="parameters">执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准。</param>   
+            <returns></returns>   
+            <exception cref="T:System.Exception"></exception>  
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteReader(System.Data.SQLite.SQLiteConnection,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>   
+            执行一个查询语句，返回一个关联的SQLiteDataReader实例。   
+            </summary>   
+            <param name="connection"></param>
+            <param name="sql">要执行的查询语句。</param>   
+            <param name="parameters">执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准。</param>   
+            <returns></returns>   
+            <exception cref="T:System.Exception"></exception>  
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.CreateCommand(System.Data.SQLite.SQLiteConnection,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>
+            Creates the command.
+            </summary>
+            <param name="connection">Connection.</param>
+            <param name="commandText">Command text.</param>
+            <param name="commandParameters">Command parameters.</param>
+            <returns>SQLite Command</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.CreateCommand(System.String,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>
+            Creates the command.
+            </summary>
+            <param name="connectionString">Connection string.</param>
+            <param name="commandText">Command text.</param>
+            <param name="commandParameters">Command parameters.</param>
+            <returns>SQLite Command</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.CreateParameter(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            Creates the parameter.
+            </summary>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="parameterType">Parameter type.</param>
+            <param name="parameterValue">Parameter value.</param>
+            <returns>SQLiteParameter</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteDataSet(System.String,System.String,System.Object[])">
+            <summary>
+            Shortcut method to execute dataset from SQL Statement and object[] arrray of parameter values
+            </summary>
+            <param name="connectionString">SQLite Connection string</param>
+            <param name="commandText">SQL Statement with embedded "@param" style parameter names</param>
+            <param name="paramList">object[] array of parameter values</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteDataSet(System.Data.SQLite.SQLiteConnection,System.String,System.Object[])">
+            <summary>
+            Shortcut method to execute dataset from SQL Statement and object[] arrray of  parameter values
+            </summary>
+            <param name="cn">Connection.</param>
+            <param name="commandText">Command text.</param>
+            <param name="paramList">Param list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteDataset(System.Data.SQLite.SQLiteCommand)">
+            <summary>
+            Executes the dataset from a populated Command object.
+            </summary>
+            <param name="cmd">Fully populated SQLiteCommand</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteDataset(System.Data.SQLite.SQLiteTransaction,System.String,System.Data.SQLite.SQLiteParameter[])">
+            <summary>
+            Executes the dataset in a SQLite Transaction
+            </summary>
+            <param name="transaction">SQLiteTransaction. Transaction consists of Connection, Transaction,  /// and Command, all of which must be created prior to making this method call. </param>
+            <param name="commandText">Command text.</param>
+            <param name="commandParameters">Sqlite Command parameters.</param>
+            <returns>DataSet</returns>
+            <remarks>user must examine Transaction Object and handle transaction.connection .Close, etc.</remarks>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteDataset(System.Data.SQLite.SQLiteTransaction,System.String,System.Object[])">
+            <summary>
+            Executes the dataset with Transaction and object array of parameter values.
+            </summary>
+            <param name="transaction">SQLiteTransaction. Transaction consists of Connection, Transaction,    /// and Command, all of which must be created prior to making this method call. </param>
+            <param name="commandText">Command text.</param>
+            <param name="commandParameters">object[] array of parameter values.</param>
+            <returns>DataSet</returns>
+            <remarks>user must examine Transaction Object and handle transaction.connection .Close, etc.</remarks>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.UpdateDataset(System.Data.SQLite.SQLiteCommand,System.Data.SQLite.SQLiteCommand,System.Data.SQLite.SQLiteCommand,System.Data.DataSet,System.String)">
+            <summary>
+            Executes the respective command for each inserted, updated, or deleted row in the DataSet.
+            </summary>
+            <remarks>
+            e.g.:  
+             UpdateDataset(conn, insertCommand, deleteCommand, updateCommand, dataSet, "Order");
+            </remarks>
+            <param name="insertCommand">A valid SQL statement  to insert new records into the data source</param>
+            <param name="deleteCommand">A valid SQL statement to delete records from the data source</param>
+            <param name="updateCommand">A valid SQL statement used to update records in the data source</param>
+            <param name="dataSet">The DataSet used to update the data source</param>
+            <param name="tableName">The DataTable used to update the data source.</param>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteReader(System.Data.SQLite.SQLiteCommand,System.String,System.Object[])">
+            <summary>
+            ShortCut method to return IDataReader
+            NOTE: You should explicitly close the Command.connection you passed in as
+            well as call Dispose on the Command  after reader is closed.
+            We do this because IDataReader has no underlying Connection Property.
+            </summary>
+            <param name="cmd">SQLiteCommand Object</param>
+            <param name="commandText">SQL Statement with optional embedded "@param" style parameters</param>
+            <param name="paramList">object[] array of parameter values</param>
+            <returns>IDataReader</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteNonQuery(System.String,System.String,System.Object[])">
+            <summary>
+            Shortcut to ExecuteNonQuery with SqlStatement and object[] param values
+            </summary>
+            <param name="connectionString">SQLite Connection String</param>
+            <param name="commandText">Sql Statement with embedded "@param" style parameters</param>
+            <param name="paramList">object[] array of parameter values</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteNonQuery(System.Data.SQLite.SQLiteTransaction,System.String,System.Object[])">
+            <summary>
+            Executes  non-query sql Statment with Transaction
+            </summary>
+            <param name="transaction">SQLiteTransaction. Transaction consists of Connection, Transaction,   /// and Command, all of which must be created prior to making this method call. </param>
+            <param name="commandText">Command text.</param>
+            <param name="paramList">Param list.</param>
+            <returns>Integer</returns>
+            <remarks>user must examine Transaction Object and handle transaction.connection .Close, etc.</remarks>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteNonQuery(System.Data.IDbCommand)">
+            <summary>
+            Executes the non query.
+            </summary>
+            <param name="cmd">CMD.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            <summary>
+            Shortcut to ExecuteScalar with Sql Statement embedded params and object[] param values
+            </summary>
+            <param name="connectionString">SQLite Connection String</param>
+            <param name="commandText">SQL statment with embedded "@param" style parameters</param>
+            <param name="paramList">object[] array of param values</param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteXmlReader(System.Data.IDbCommand)">
+            <summary>
+            Execute XmlReader with complete Command
+            </summary>
+            <param name="command">SQLite Command</param>
+            <returns>XmlReader</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.AttachParameters(System.Data.SQLite.SQLiteCommand,System.String,System.Object[])">
+            <summary>
+            Parses parameter names from SQL Statement, assigns values from object array ,   /// and returns fully populated ParameterCollection.
+            </summary>
+            <param name="commandText">Sql Statement with "@param" style embedded parameters</param>
+            <param name="paramList">object[] array of parameter values</param>
+            <returns>SQLiteParameterCollection</returns>
+            <remarks>Status experimental. Regex appears to be handling most issues. Note that parameter object array must be in same ///order as parameter names appear in SQL statement.</remarks>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.ExecuteNonQueryTypedParams(System.Data.IDbCommand,System.Data.DataRow)">
+            <summary>
+            Executes non query typed params from a DataRow
+            </summary>
+            <param name="command">Command.</param>
+            <param name="dataRow">Data row.</param>
+            <returns>Integer result code</returns>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.AssignParameterValues(System.Data.IDataParameterCollection,System.Data.DataRow)">
+            <summary>
+            This method assigns dataRow column values to an IDataParameterCollection
+            </summary>
+            <param name="commandParameters">The IDataParameterCollection to be assigned values</param>
+            <param name="dataRow">The dataRow used to hold the command's parameter values</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if any of the parameter names are invalid.</exception>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.AssignParameterValues(System.Data.IDataParameter[],System.Data.DataRow)">
+            <summary>
+            This method assigns dataRow column values to an array of IDataParameters
+            </summary>
+            <param name="commandParameters">Array of IDataParameters to be assigned values</param>
+            <param name="dataRow">The dataRow used to hold the stored procedure's parameter values</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if any of the parameter names are invalid.</exception>
+        </member>
+        <member name="M:WYQDoNet.DBS.SQLite.SQLiteHelper.AssignParameterValues(System.Data.IDataParameter[],System.Object[])">
+            <summary>
+            This method assigns an array of values to an array of IDataParameters
+            </summary>
+            <param name="commandParameters">Array of IDataParameters to be assigned values</param>
+            <param name="parameterValues">Array of objects holding the values to be assigned</param>
+            <exception cref="T:System.ArgumentException">Thrown if an incorrect number of parameters are passed.</exception>
+        </member>
+        <member name="M:WYQDoNet.DoNet.BaseUtils.AppUtils.AppHelper.GetCurrentApplicationBaseDirectory">
             <summary>
             结尾有 \
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.CollectionUtils.CollectionTools.NameValueCollectionLink(System.Collections.Specialized.NameValueCollection,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.CollectionUtils.CollectionHelper.NameValueCollectionLink(System.Collections.Specialized.NameValueCollection,System.String,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
             将NameValueCollection连接成字符串
             </summary>
@@ -2282,19 +2539,19 @@
             <param name="isfooter">nvc是否加在后面</param>
             <returns>返回结果</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNowDateTime">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetUtcNowDateTime">
             <summary>
             返回Utc时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNowDateTime">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetBeijingNowDateTime">
             <summary>
             返回北京时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow(System.String,System.Globalization.CultureInfo)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetUtcNow(System.String,System.Globalization.CultureInfo)">
             <summary>
             依据指定格式，文化信息，获取Utc时间
             </summary>
@@ -2302,7 +2559,7 @@
             <param name="ci">文化信息</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow(System.String,System.Globalization.CultureInfo)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetBeijingNow(System.String,System.Globalization.CultureInfo)">
             <summary>
             依据指定格式，文化信息，获取北京时间
             </summary>
@@ -2310,19 +2567,19 @@
             <param name="ci">文化信息</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetUtcNow">
             <summary>
             默认格式，文化信息，获取Utc时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetBeijingNow">
             <summary>
             默认格式，文化信息，获取北京时间
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow(System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetBeijingNow(System.Int32,System.Char,System.Boolean)">
             <summary>
             返回北京时间
             </summary>
@@ -2331,7 +2588,7 @@
             <param name="left"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetBeijingNow(System.String,System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetBeijingNow(System.String,System.Int32,System.Char,System.Boolean)">
             <summary>
             获取指定宽度的北京时间
             </summary>
@@ -2341,7 +2598,7 @@
             <param name="left">左填充</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow(System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetUtcNow(System.Int32,System.Char,System.Boolean)">
             <summary>
             获取指定宽度的Utc时间
             </summary>
@@ -2350,7 +2607,7 @@
             <param name="left">左填充</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.DateUtils.DateTools.GetUtcNow(System.String,System.Int32,System.Char,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.DateUtils.DateHelper.GetUtcNow(System.String,System.Int32,System.Char,System.Boolean)">
             <summary>
             获取指定宽度的Utc时间
             </summary>
@@ -2360,7 +2617,7 @@
             <param name="left">左填充</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.EnDecodingUtils.EnDecodingHelper.UrlEncode(System.String,System.Text.Encoding)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.EnDecodingUtils.EnDecodingHelper.UrlEncode(System.String,System.Text.Encoding)">
             <summary>
             url编码
             </summary>
@@ -2368,7 +2625,7 @@
             <param name="encode"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.EnDecodingUtils.EnDecodingHelper.UrlDecode(System.String,System.Text.Encoding)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.EnDecodingUtils.EnDecodingHelper.UrlDecode(System.String,System.Text.Encoding)">
             <summary>
             url解密
             </summary>
@@ -2376,21 +2633,21 @@
             <param name="encode"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.ExceptionUtils.ExceptionHelper.GetExceptionInfo(System.Exception)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.ExceptionUtils.ExceptionHelper.GetExceptionInfo(System.Exception)">
             <summary>
             获取异常信息，不换行
             </summary>
             <param name="ex">异常</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.ExceptionUtils.ExceptionHelper.GetExceptionInfoln(System.Exception)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.ExceptionUtils.ExceptionHelper.GetExceptionInfoln(System.Exception)">
             <summary>
             获取异常信息，换行
             </summary>
             <param name="ex">异常</param>
             <returns></returns>
         </member>
-        <member name="T:WYQDoNet.DoNet.Base.PathUtils.PathHelper">
+        <member name="T:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper">
             <summary>
             Desktop:C:\Users\WYQ\Desktop
             Programs:C:\Users\WYQ\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
@@ -2441,98 +2698,98 @@
             CDBurning:C:\Users\WYQ\AppData\Local\Microsoft\Windows\Burn\Burn
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetDesktopDirectoryPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetDesktopDirectoryPath">
             <summary>
             DesktopDirectory:C:\Users\WYQ\Desktop
             获取当前用户桌面路径，尾部没有"\"
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetCommonDesktopDirectoryPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetCommonDesktopDirectoryPath">
             <summary>
             CommonDesktopDirectory:C:\Users\Public\Desktop
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetUserProfilePath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetUserProfilePath">
             <summary>
             UserProfile:C:\Users\WYQ
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetLocalApplicationDataPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetLocalApplicationDataPath">
             <summary>
             LocalApplicationData:C:\Users\WYQ\AppData\Local
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetCommonApplicationDataPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetCommonApplicationDataPath">
             <summary>
             CommonApplicationData:C:\ProgramData
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetWindowsPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetWindowsPath">
             <summary>
             Windows:C:\Windows
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetSystemPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetSystemPath">
             <summary>
             System:C:\Windows\system32
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetSystemX86Path">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetSystemX86Path">
             <summary>
             SystemX86:C:\Windows\SysWOW64
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetProgramFilesX86Path">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetProgramFilesX86Path">
             <summary>
             ProgramFilesX86:C:\Program Files (x86)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetProgramFilesPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetProgramFilesPath">
             <summary>
             ProgramFiles:C:\Program Files
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetFontsPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetFontsPath">
             <summary>
             Fonts:C:\Windows\Fonts
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyDocumentsPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetMyDocumentsPath">
             <summary>
             MyDocuments:C:\Users\WYQ\Documents
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyVideosPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetMyVideosPath">
             <summary>
             MyVideos:C:\Users\WYQ\Videos
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyMusicPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetMyMusicPath">
             <summary>
             MyMusic:C:\Users\WYQ\Music
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetMyPicturesPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetMyPicturesPath">
             <summary>
             MyPictures:C:\Users\WYQ\Pictures
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetTempPath">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetTempPath">
             <summary>
             此方法检查是否存在以下顺序的环境变量，并使用找到的第一个路径：
             由 TMP 环境变量指定的路径。
@@ -2542,19 +2799,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetTempFileName">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetTempFileName">
             <summary>
             此方法创建带 .TMP 文件扩展名的临时文件。 临时文件在用户的 temp 文件夹中创建，是 GetTempPath 方法返回的路径。
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.PathUtils.PathHelper.GetRandomFileName">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.PathUtils.PathHelper.GetRandomFileName">
             <summary>
             GetRandomFileName 方法返回可用作文件夹名或文件名的加密的强随机字符串。 与 GetTempFileName 不同，GetRandomFileName 不创建文件。 当文件系统的安全性非常重要时，应使用此方法而不是 GetTempFileName。
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.RandomUtils.RandomHelper.GetRandomCode(System.Int32,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.RandomUtils.RandomHelper.GetRandomCode(System.Int32,System.Int32)">
             <summary>
             生成一串code
             </summary>
@@ -2562,7 +2819,7 @@
             <param name="type">code类型，1表示只有数字组成，2表示只有小写字母组成,3表示只有大写字母组成,12表示有数组、小写字母组成...</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.RandomUtils.RandomHelper.GetRandomInts(System.Int32,System.Int32,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.RandomUtils.RandomHelper.GetRandomInts(System.Int32,System.Int32,System.Int32)">
             <summary>
             生成指定个数的随机整数
             </summary>
@@ -2571,7 +2828,7 @@
             <param name="max">所有随机数的最大值，不包括该最大值</param>
             <returns>返回随机数数组</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringArrayAddString(System.String[],System.String,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringArrayHelper.StringArrayAddString(System.String[],System.String,System.Boolean)">
             <summary>
             对string数组每个元素添加相同的字符串
             </summary>
@@ -2580,7 +2837,7 @@
             <param name="ishead">是否添加在前部</param>
             <returns>返回结果字符串</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringArrayLink(System.String[],System.String,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringArrayHelper.StringArrayLink(System.String[],System.String,System.Boolean,System.Boolean)">
             <summary>
             将字符串数组连接成一个字符串，临界点为指定总分
             </summary>
@@ -2590,7 +2847,7 @@
             <param name="isfooter">尾部是否加连接符</param>
             <returns>返回连接后的字符串</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringToArrayString(System.String,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringArrayHelper.StringToArrayString(System.String,System.Int32)">
             <summary>
             将字符串转为字符串数组，元素个数相等
             </summary>
@@ -2598,7 +2855,7 @@
             <param name="width">数组元素宽度</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringArrayTools.StringToArrayStringAlign(System.String,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringArrayHelper.StringToArrayStringAlign(System.String,System.Int32)">
             <summary>
             将字符串转为字符串数组，元素显示宽度相等
             </summary>
@@ -2606,7 +2863,7 @@
             <param name="width">数组元素显示宽度</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.StringTrim(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringHelper.StringTrim(System.String,System.String)">
             <summary>
             使用参数控制TrimString
             </summary>
@@ -2614,7 +2871,7 @@
             <param name="trimType">l,r,a,n</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.GetRepeatString(System.Int32,System.Char)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringHelper.GetRepeatString(System.Int32,System.Char)">
             <summary>
             返回字符重复指定次数字符串
             </summary>
@@ -2622,7 +2879,7 @@
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.GetRepeatString(System.Int32,System.String)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringHelper.GetRepeatString(System.Int32,System.String)">
             <summary>
             返回字符串重复指定次数字符串
             </summary>
@@ -2630,21 +2887,21 @@
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.isASCLL(System.Char)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringHelper.isASCLL(System.Char)">
             <summary>
             判断字符是否是ascll
             </summary>
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Base.StringUtils.StringTools.isASCLL(System.String)">
+        <member name="M:WYQDoNet.DoNet.BaseUtils.StringUtils.StringHelper.isASCLL(System.String)">
             <summary>
             判断字符串是否全由ascll字符构成
             </summary>
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.EnDecrypt.DigestUtils.DigestHelper.GetHash(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.EnDecryptUtils.DigestUtils.DigestHelper.GetHash(System.String,System.String)">
             <summary>
             
             </summary>
@@ -2713,40 +2970,35 @@
             <param name="r">设置圆角矩形的圆角</param>
             <returns></returns>
         </member>
-        <member name="T:WYQDoNet.DoNet.IO.FileTools.Properties">
-            <summary>
-            类似Java的属性类,注释行开头为#、![ 一定要放在一行,开头可以为空格.key-value的分隔符为第一个:、=，开头可以为空格
-            </summary>
-        </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.FileRename(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.FileRename(System.String,System.String)">
             <summary>
             文件重命名
             </summary>
             <param name="filePath"></param>
             <param name="newFilePath"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.CreateDirectories(System.String,System.String[])">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.CreateDirectories(System.String,System.String[])">
             <summary>
             批量创建目录
             </summary>
             <param name="path"></param>
             <param name="dns">不以"\"、'/'开头</param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.GetDirectories(System.String)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.GetDirectories(System.String)">
             <summary>
             获取目录下的所有目录
             </summary>
             <param name="dn"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.GetFiles(System.String)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.GetFiles(System.String)">
             <summary>
             获取目录下的所有文件不包括文件夹
             </summary>
             <param name="dn"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.StringsToTxtFile(System.String,System.String[],System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.StringsToTxtFile(System.String,System.String[],System.Boolean)">
             <summary>
             将字符串数组追加到文件末尾，一个元素一行
             </summary>
@@ -2754,14 +3006,14 @@
             <param name="contents"></param>
             <param name="isoverride"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.AppendLines(System.String,System.String[])">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.AppendLines(System.String,System.String[])">
             <summary>
             将字符串数组追加到文件末尾，一个元素一行
             </summary>
             <param name="path"></param>
             <param name="lines"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.FileTools.FileUtils.FileCreate(System.String,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.FileUtils.FileHelper.FileCreate(System.String,System.Boolean,System.Boolean)">
             <summary>
             在指定路径中创建或覆盖文件。
             </summary>
@@ -2770,7 +3022,29 @@
             <param name="isoverrideFile">如果文件存在是否覆盖</param>
             <returns>返回是否创建成功</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.SteamSplitMerge.CopyStreamPart(System.IO.Stream,System.IO.Stream,System.Int64,System.Int64,System.Int64,System.Int32)">
+        <member name="T:WYQDoNet.DoNet.IOUtils.FileUtils.Properties">
+            <summary>
+            类似Java的属性类,注释行开头为#、![ 一定要放在一行,开头可以为空格.key-value的分隔符为第一个:、=，开头可以为空格
+            </summary>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.PathUtils.PathHelper.CheckFileExtension(System.String,System.String,System.Boolean)">
+            <summary>
+            验证扩展名
+            </summary>
+            <param name="filepath"></param>
+            <param name="extension"></param>
+            <param name="ac"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.PathUtils.PathHelper.DirectoryPathFormat(System.String,System.Boolean)">
+            <summary>
+            保证以目录分隔符结尾
+            </summary>
+            <param name="dpath"></param>
+            <param name="it"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.SteamSplitMergeHelper.CopyStreamPart(System.IO.Stream,System.IO.Stream,System.Int64,System.Int64,System.Int64,System.Int32)">
             <summary>
             拷贝部分输入流到输出流的指定位置
             </summary>
@@ -2781,7 +3055,7 @@
             <param name="writeStartPlace"></param>
             <param name="bufferSize"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.SteamSplitMerge.MergeStream(WYQDoNet.DoNet.IO.StreamTools.StreamPartModel[],System.IO.Stream,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.SteamSplitMergeHelper.MergeStream(WYQDoNet.DoNet.IOUtils.StreamUtils.StreamPartModel[],System.IO.Stream,System.Int32)">
             <summary>
             将部分流输入到输出流
             </summary>
@@ -2789,7 +3063,7 @@
             <param name="outputStream"></param>
             <param name="bufferSize"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.SteamSplitMerge.SplitStream(WYQDoNet.DoNet.IO.StreamTools.StreamPartModel[],System.IO.Stream,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.SteamSplitMergeHelper.SplitStream(WYQDoNet.DoNet.IOUtils.StreamUtils.StreamPartModel[],System.IO.Stream,System.Int32)">
             <summary>
             将输入流输出的部分流
             </summary>
@@ -2797,24 +3071,24 @@
             <param name="inputStream"></param>
             <param name="bufferSize"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.SteamSplitMerge.StreamPartsOrder(WYQDoNet.DoNet.IO.StreamTools.StreamPartModel[])">
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.SteamSplitMergeHelper.StreamPartsOrder(WYQDoNet.DoNet.IOUtils.StreamUtils.StreamPartModel[])">
             <summary>
             对流部分模型按start排序
             </summary>
             <param name="streamParts"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.SteamSplitMerge.CloseStreamParts(WYQDoNet.DoNet.IO.StreamTools.StreamPartModel[])">
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.SteamSplitMergeHelper.CloseStreamParts(WYQDoNet.DoNet.IOUtils.StreamUtils.StreamPartModel[])">
             <summary>
             关闭流部分模型
             </summary>
             <param name="streamParts"></param>
         </member>
-        <member name="T:WYQDoNet.DoNet.IO.StreamTools.StreamUtils">
+        <member name="T:WYQDoNet.DoNet.IOUtils.StreamUtils.StreamHelper">
             <summary>
             StreamReader、StreamWriter 的默认BufferSize=128
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.StreamUtils.CopyStream(System.IO.Stream,System.IO.Stream,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.StreamHelper.CopyStream(System.IO.Stream,System.IO.Stream,System.Int32)">
             <summary>
             复制流
             </summary>
@@ -2822,30 +3096,13 @@
             <param name="output"></param>
             <param name="bufferSize"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.StreamTools.StreamUtils.CloseStreams(System.IO.Stream[])">
+        <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.StreamHelper.CloseStreams(System.IO.Stream[])">
             <summary>
             关闭流数组
             </summary>
             <param name="streams"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.IO.PathTools.PathUtils.CheckFileExtension(System.String,System.String,System.Boolean)">
-            <summary>
-            验证扩展名
-            </summary>
-            <param name="filepath"></param>
-            <param name="extension"></param>
-            <param name="ac"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WYQDoNet.DoNet.IO.PathTools.PathUtils.DirectoryPathFormat(System.String,System.Boolean)">
-            <summary>
-            保证以目录分隔符结尾
-            </summary>
-            <param name="dpath"></param>
-            <param name="it"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WYQDoNet.DoNet.Log.TraceUtils.TraceHelper.#ctor">
+        <member name="M:WYQDoNet.DoNet.LogUtils.TraceUtils.TraceHelper.#ctor">
             <summary>
             禁止实例化
             </summary>
@@ -2990,52 +3247,52 @@
             <param name="radix"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Host.DnsHelper.GetHostIPs(System.String)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HostUtils.DnsHelper.GetHostIPs(System.String)">
             <summary>
             获取主机的所有IP
             </summary>
             <param name="host">主机名称，域名</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Host.DnsHelper.GetHostFirstIP(System.String)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HostUtils.DnsHelper.GetHostFirstIP(System.String)">
             <summary>
             获取主机的第一个IP
             </summary>
             <param name="host">主机名称，域名</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Host.DnsHelper.GetHostName(System.String)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HostUtils.DnsHelper.GetHostName(System.String)">
             <summary>
             依据IP,获得主机名称
             </summary>
             <param name="ip">主机名称，域名</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Host.HostHelper.GetHostName">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HostUtils.HostHelper.GetHostName">
             <summary>
             获取当前主机名
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Host.HostHelper.GetHostAddresses(System.String)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HostUtils.HostHelper.GetHostAddresses(System.String)">
             <summary>
             获取指定主机所有ipv4地址
             </summary>
             <param name="hostname"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Host.HostHelper.GetLocalHostAddresses">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HostUtils.HostHelper.GetLocalHostAddresses">
             <summary>
             获取当前主机所有ipv4
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpBrowser.#ctor">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpBrowser.#ctor">
             <summary>
             初始化一个浏览器，用于发送http请求
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpBrowser.GetHttpGetHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpBrowser.GetHttpGetHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取Headers,Cookies,Body
             </summary>
@@ -3047,7 +3304,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Headers,Cookies,Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpBrowser.GetHttpPostHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpBrowser.GetHttpPostHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取Headers,Cookies,Body
             </summary>
@@ -3060,14 +3317,14 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetResultSimple(System.String)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetResultSimple(System.String)">
             <summary>
             简单Get请求，只获取Body
             </summary>
             <param name="url"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetResponse(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetResponse(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取HttpWebResponse
             </summary>
@@ -3080,7 +3337,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>HttpWebResponse</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetHeaders(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetHeaders(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取WebHeaderCollection
             </summary>
@@ -3093,7 +3350,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>WebHeaderCollection</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetCookies(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetCookies(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取CookieCollection
             </summary>
@@ -3106,7 +3363,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>CookieCollection</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetBody(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetBody(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取Body
             </summary>
@@ -3119,7 +3376,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetHeadersBody(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetHeadersBody(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取Headers,Body
             </summary>
@@ -3132,7 +3389,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Headers,Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpGetHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpGetHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Get请求，获取Headers,Cookies,Body
             </summary>
@@ -3145,7 +3402,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Headers,Cookies,Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
             <summary>
             接受509证书
             </summary>
@@ -3155,7 +3412,7 @@
             <param name="errors"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpPostResponse(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpPostResponse(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取HttpWebResponse
             </summary>
@@ -3168,7 +3425,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>HttpWebResponse</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpPostHeaders(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpPostHeaders(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取Headers
             </summary>
@@ -3181,7 +3438,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Headers</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpPostCookies(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpPostCookies(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取Cookies
             </summary>
@@ -3194,7 +3451,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Cookies</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpPostBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpPostBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取Body
             </summary>
@@ -3207,7 +3464,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpPostHeadersBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpPostHeadersBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取Headers,Body
             </summary>
@@ -3220,7 +3477,7 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Headers,Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Net.Http.HttpUtils.GetHttpPostHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.NetUtils.HttpUtils.HttpHelper.GetHttpPostHeadersCookiesBody(System.String,System.Collections.Specialized.NameValueCollection,System.String,System.Net.CookieCollection,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             依据http地址，发送Post请求，获取Headers,Cookies,Body
             </summary>
@@ -3233,33 +3490,33 @@
             <param name="isSsl">是否启用SSL,默认禁止</param>
             <returns>Headers,Cookies,Body</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.CMDTools.ExeCmd(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.CMDHelper.ExeCmd(System.String)">
             <summary>
             执行cmd命令，获取返回结果
             </summary>
             <param name="cmdtext"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ComputerUtils.GetMachineName">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ComputerHelper.GetMachineName">
             <summary>
             获取机器名称
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ComputerUtils.GetProcessorCount">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ComputerHelper.GetProcessorCount">
             <summary>
             获取处理器数量
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.GetAssemblyFromFile(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.GetAssemblyFromFile(System.String)">
             <summary>
             根据路径加载指定程序集
             </summary>
             <param name="filePath"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.GetTypeFromAssembly(System.Reflection.Assembly,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.GetTypeFromAssembly(System.Reflection.Assembly,System.String)">
             <summary>
             从程序集中依据全路径获取指定类型
             </summary>
@@ -3267,14 +3524,14 @@
             <param name="fullName"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.CreateInstanceFromClassType(System.Type)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.CreateInstanceFromClassType(System.Type)">
             <summary>
             从类型中创建实例对象
             </summary>
             <param name="classType"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.CreateInstanceFromClassTypeParams(System.Type,System.Object[])">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.CreateInstanceFromClassTypeParams(System.Type,System.Object[])">
             <summary>
             指定构造函数创建对象
             </summary>
@@ -3282,7 +3539,7 @@
             <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.InvokeMethodFromObjectByMethodName(System.Object,System.String,System.Object[])">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.InvokeMethodFromObjectByMethodName(System.Object,System.String,System.Object[])">
             <summary>
             执行对象的指定方法
             </summary>
@@ -3291,7 +3548,7 @@
             <param name="parameters"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.InvokeMethodFromObjectByMethodNameParams(System.Object,System.String,System.Type[],System.Object[])">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.InvokeMethodFromObjectByMethodNameParams(System.Object,System.String,System.Type[],System.Object[])">
             <summary>
             执行对象的指定方法
             </summary>
@@ -3301,7 +3558,7 @@
             <param name="parameters"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.GetFieldValueFromObjectByFieldName(System.Object,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.GetFieldValueFromObjectByFieldName(System.Object,System.String)">
             <summary>
             获取对象的字段值
             </summary>
@@ -3309,7 +3566,7 @@
             <param name="fieldName"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.DynamicCall.SetFieldValueFromObjectByFieldName(System.Object,System.String,System.Object)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.DynamicCallHelper.SetFieldValueFromObjectByFieldName(System.Object,System.String,System.Object)">
             <summary>
             设置对象的字段值
             </summary>
@@ -3317,7 +3574,7 @@
             <param name="fieldName"></param>
             <param name="fieldValue"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.PerformanceHelper.#ctor(System.String,System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.PerformanceHelper.#ctor(System.String,System.String,System.String)">
             <summary>
             获取指定性能监视器
             </summary>
@@ -3325,14 +3582,14 @@
             <param name="InstanceName">无.exe</param>
             <param name="counterName">性能计数器的名称</param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.PerformanceHelper.#ctor(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.PerformanceHelper.#ctor(System.String,System.String)">
             <summary>
             获取指定性能监视器
             </summary>
             <param name="categoryName">性能计数器类别（性能对象）的名称</param>
             <param name="counterName">性能计数器的名称</param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.PerformanceHelper.GetCounterNames(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.PerformanceHelper.GetCounterNames(System.String,System.String)">
             <summary>
             性能计数器的名称
             </summary>
@@ -3340,33 +3597,33 @@
             <param name="instanceName">性能计数器类别实例的名称，无.exe</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.PerformanceHelper.GetCounterNames(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.PerformanceHelper.GetCounterNames(System.String)">
             <summary>
             性能计数器的名称
             </summary>
             <param name="categoryName">性能计数器类别（性能对象）的名称</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ProcessTools.ProcessKill(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ProcessHelper.ProcessKill(System.String)">
             <summary>
             依据进程名称，kill指定进程
             </summary>
             <param name="pn"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ProcessTools.GetProcessesName">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ProcessHelper.GetProcessesName">
             <summary>
             获取经常名称
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ProcessTools.GetProcessByName(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ProcessHelper.GetProcessByName(System.String)">
             <summary>
             依据名称获取进程
             </summary>
             <param name="processName">不包括.exe</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ProcessTools.StartApp(System.String,System.Boolean,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ProcessHelper.StartApp(System.String,System.Boolean,System.String)">
             <summary>
             启动指定App
             </summary>
@@ -3374,41 +3631,41 @@
             <param name="visible"></param>
             <param name="args"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ProcessTools.ShellOpenFile(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ProcessHelper.ShellOpenFile(System.String,System.String)">
             <summary>
             通过Shell打开文件
             </summary>
             <param name="filename"></param>
             <param name="verb"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ProcessTools.GetFileExtensionVerbs(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ProcessHelper.GetFileExtensionVerbs(System.String)">
             <summary>
             获取扩展名称的动作
             </summary>
             <param name="filename"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.ThreadTools.ThreadSleep(System.Int32)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.ThreadHelper.ThreadSleep(System.Int32)">
             <summary>
             线程睡眠指定毫秒数
             </summary>
             <param name="ms"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.WindowsTools.FileCopy(System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.WindowsHelper.FileCopy(System.String,System.String)">
             <summary>
             调用系统复制工具
             </summary>
             <param name="sourcePath"></param>
             <param name="destinationPath"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.WindowsTools.GetShortCutTarget(System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.WindowsHelper.GetShortCutTarget(System.String)">
             <summary>
             取快捷方式目标  
             </summary>
             <param name="lnk">快捷方式路径</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.System.WindowsTools.CreateShortCut(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:WYQDoNet.DoNet.SystemUtils.WindowsHelper.CreateShortCut(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             创建快捷方式，不会是否创建成功
             </summary>
@@ -3421,33 +3678,49 @@
             <param name="hotKey">热键</param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.WYQ.WindowsUtils.RedrawWindow(System.Int32,WYQDoNet.DoNet.Win32.WYQ.WindowsUtils.RECT@,System.Int32,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.WebUtils.JsonUtils.JsonHelper.SerializeObject(System.Object)">
             <summary>
-            WindowsUtils.RedrawWindow(0x0001019E,ref rect, 0, WindowsUtils.RDW_INVALIDATE);
+            将对象序列化为JSON格式
             </summary>
-            <param name="hWnd"></param>
-            <param name="lprcUpdate"></param>
-            <param name="hrgnUpdate"></param>
-            <param name="fuRedraw"></param>
-            <returns></returns>
+            <param name="o">对象</param>
+            <returns>json字符串</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.WYQ.WindowsUtils.SetWindowForeground(System.Int32)">
+        <member name="M:WYQDoNet.DoNet.WebUtils.JsonUtils.JsonHelper.DeserializeJsonToObject``1(System.String)">
             <summary>
-            将窗口前置，指定窗口句柄
+            解析JSON字符串生成对象实体
             </summary>
-            <param name="Hwnd"></param>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">json字符串(eg.{"ID":"112","Name":"石子儿"})</param>
+            <returns>对象实体</returns>
         </member>
-        <member name="T:WYQDoNet.DoNet.Win32.APIMin.CommonConst">
+        <member name="M:WYQDoNet.DoNet.WebUtils.JsonUtils.JsonHelper.DeserializeJsonToList``1(System.String)">
+            <summary>
+            解析JSON数组生成对象实体集合
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">json数组字符串(eg.[{"ID":"112","Name":"石子儿"}])</param>
+            <returns>对象实体集合</returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.WebUtils.JsonUtils.JsonHelper.DeserializeAnonymousType``1(System.String,``0)">
+            <summary>
+            反序列化JSON到给定的匿名对象.
+            </summary>
+            <typeparam name="T">匿名对象类型</typeparam>
+            <param name="json">json字符串</param>
+            <param name="anonymousTypeObject">匿名对象</param>
+            <returns>匿名对象</returns>
+        </member>
+        <member name="T:WYQDoNet.DoNet.Win32Utils.APIMinUtils.CommonConst">
             <summary>
             Windows API 常数
             </summary>
         </member>
-        <member name="T:WYQDoNet.DoNet.Win32.APIMin.WindowsAPI">
+        <member name="T:WYQDoNet.DoNet.Win32Utils.APIMinUtils.WindowsAPI">
             <summary>
             封装Windows API类，可直接调用，和调用平常的方法相同（注：本类的方法调用不需要实利化，全部都是静态方法）
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.APIMin.WindowsAPI.ShellAbout(System.IntPtr,System.String,System.String,System.IntPtr)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.APIMinUtils.WindowsAPI.ShellAbout(System.IntPtr,System.String,System.String,System.IntPtr)">
             <summary>
             Show Windows About Dialog
             </summary>
@@ -3457,14 +3730,14 @@
             <param name="icon"></param>
             <example>WindowsAPI.ShellAbout(this.Handle, "caption", "text", this.Icon.Handle.ToInt32());</example>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.APIMin.WindowsAPI.BlockInput(System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.APIMinUtils.WindowsAPI.BlockInput(System.Boolean)">
             <summary>
             enable/disable Both Keyboard and Mouse input
             </summary>
             <param name="enable"></param>
             <example>WindowsAPI.BlockInput(true);</example>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.APIMin.WindowsAPI.SendMessage(System.IntPtr,System.UInt32,System.Int32,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.APIMinUtils.WindowsAPI.SendMessage(System.IntPtr,System.UInt32,System.Int32,System.Int32)">
             <summary>
             Windows消息
             </summary>
@@ -3474,7 +3747,7 @@
             <param name="LParam"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.APIMin.WindowsAPI.MessageBox(System.IntPtr,System.String,System.String,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.APIMinUtils.WindowsAPI.MessageBox(System.IntPtr,System.String,System.String,System.Int32)">
             <summary>
             显示对话框
             </summary>
@@ -3484,46 +3757,30 @@
             <param name="uType"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Win32.APIMin.WindowsAPI.PathIsFileSpec(System.String)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.APIMinUtils.WindowsAPI.PathIsFileSpec(System.String)">
             <summary>
             检查路径中是否带有 ‘:’ 和 ‘\’ 分隔符
             </summary>
             <param name="szfile"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Web.Json.JsonHelper.SerializeObject(System.Object)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.WAPIUtils.Win32Helper.RedrawWindow(System.Int32,WYQDoNet.DoNet.Win32Utils.WAPIUtils.Win32Helper.RECT@,System.Int32,System.Int32)">
             <summary>
-            将对象序列化为JSON格式
+            WindowsUtils.RedrawWindow(0x0001019E,ref rect, 0, WindowsUtils.RDW_INVALIDATE);
             </summary>
-            <param name="o">对象</param>
-            <returns>json字符串</returns>
+            <param name="hWnd"></param>
+            <param name="lprcUpdate"></param>
+            <param name="hrgnUpdate"></param>
+            <param name="fuRedraw"></param>
+            <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Web.Json.JsonHelper.DeserializeJsonToObject``1(System.String)">
+        <member name="M:WYQDoNet.DoNet.Win32Utils.WAPIUtils.Win32Helper.SetWindowForeground(System.Int32)">
             <summary>
-            解析JSON字符串生成对象实体
+            将窗口前置，指定窗口句柄
             </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="json">json字符串(eg.{"ID":"112","Name":"石子儿"})</param>
-            <returns>对象实体</returns>
+            <param name="Hwnd"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.Web.Json.JsonHelper.DeserializeJsonToList``1(System.String)">
-            <summary>
-            解析JSON数组生成对象实体集合
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="json">json数组字符串(eg.[{"ID":"112","Name":"石子儿"}])</param>
-            <returns>对象实体集合</returns>
-        </member>
-        <member name="M:WYQDoNet.DoNet.Web.Json.JsonHelper.DeserializeAnonymousType``1(System.String,``0)">
-            <summary>
-            反序列化JSON到给定的匿名对象.
-            </summary>
-            <typeparam name="T">匿名对象类型</typeparam>
-            <param name="json">json字符串</param>
-            <param name="anonymousTypeObject">匿名对象</param>
-            <returns>匿名对象</returns>
-        </member>
-        <member name="M:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociation.AddFileAssociation(System.String,System.String,System.String,System.Int32)">
+        <member name="M:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociationHelper.AddFileAssociation(System.String,System.String,System.String,System.Int32)">
             <summary>
             将扩展名与应用关联
             </summary>
@@ -3531,54 +3788,54 @@
             <param name="appfullPath"></param>
             <param name="numArg"></param>
         </member>
-        <member name="M:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociation.DeleteFileAssociation(System.String)">
+        <member name="M:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociationHelper.DeleteFileAssociation(System.String)">
             <summary>
             将扩展名与应用取消关联
             </summary>
             <param name="extension">扩展名包括 .   如 test.wyq 的扩展名为 .wyq</param>
         </member>
-        <member name="T:WYQDoNet.DoNet.Windows.RegistryUtils.ProgramIcon">
+        <member name="T:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.ProgramIcon">
             <summary>
             Reference to an .ico file used by AF_FileAssociator.
             </summary>
         </member>
-        <member name="T:WYQDoNet.DoNet.Windows.RegistryUtils.OpenWithList">
+        <member name="T:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.OpenWithList">
             <summary>
             Reference to an list of executable files used by AF_FileAssociator.
             </summary>
         </member>
-        <member name="T:WYQDoNet.DoNet.Windows.RegistryUtils.ExecApplication">
+        <member name="T:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.ExecApplication">
             <summary>
             Reference to a executable file used by AF_FileAssociator.
             </summary>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.ExecApplication.IsValid">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.ExecApplication.IsValid">
             <summary>
             Gets a value indicating whether this Executable Application is an .exe, and that it exists.
             </summary>
         </member>
-        <member name="T:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator">
+        <member name="T:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator">
             <summary>
-            AF_Lib's class for associating files with programs and icons.
+            AF_Lib's class forHelper associating files with programs and icons.
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.#ctor(System.String)">
+        <member name="M:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.#ctor(System.String)">
             <summary>
-            Initializes a new AF_FileAssociator class object for the specified file extension.
+            Initializes a new AF_FileAssociator class objectHelper for the specified file extension.
             </summary>
             <param name="extension">the file extension to control (such as .txt).</param>
         </member>
-        <member name="F:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.Extension">
+        <member name="F:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.Extension">
             <summary>
             Gets the extension set for this file associator to control when you initialized it.
             </summary>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.Exists">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.Exists">
             <summary>
             Gets a value indicating whether the association keys exist. If the extension key doesn't, the program cannot get the name of the program association key making it appear to not exist.
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.Create(System.String,System.String,WYQDoNet.DoNet.Windows.RegistryUtils.ProgramIcon,WYQDoNet.DoNet.Windows.RegistryUtils.ExecApplication,WYQDoNet.DoNet.Windows.RegistryUtils.OpenWithList)">
+        <member name="M:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.Create(System.String,System.String,WYQDoNet.DoNet.WindowsUtils.RegistryUtils.ProgramIcon,WYQDoNet.DoNet.WindowsUtils.RegistryUtils.ExecApplication,WYQDoNet.DoNet.WindowsUtils.RegistryUtils.OpenWithList)">
             <summary>
             Create or overwrite a current file association for this FileAssociator's set extension.
             </summary>
@@ -3589,51 +3846,51 @@
             <param name="openWith">The programs that appear in the OpenWith list.</param>
             <exception cref="T:System.Exception">Thrown when an error occurs that will prevent it from working correctly.</exception>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.ID">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.ID">
             <summary>
             Gets or sets the program ID for this extension.
             </summary>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.Description">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.Description">
             <summary>
             Gets or sets the description for this file extension and/or it's program association.
             </summary>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.DefaultIcon">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.DefaultIcon">
             <summary>
             Gets or sets the icon shown on this file extension and/or it's program association.
             </summary>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.Executable">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.Executable">
             <summary>
             Gets or sets the executable ran when this file extension is opened.
             </summary>
         </member>
-        <member name="P:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.OpenWith">
+        <member name="P:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.OpenWith">
             <summary>
             Gets or sets the list of programs shown in the OpenWith list.
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Windows.RegistryUtils.FileAssociator.Delete">
+        <member name="M:WYQDoNet.DoNet.WindowsUtils.RegistryUtils.FileAssociator.Delete">
             <summary>
             Deletes all registry resources used for this file associations.
             </summary>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLHelper.GetXmlDoc(System.String,System.Boolean)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLHelper.GetXmlDoc(System.String,System.Boolean)">
             <summary>
             依据文件路径获取XmlDocument
             </summary>
             <param name="xmlDocPath">路径</param>
             <returns>XmlDocument</returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLHelper.SaveXmlDoc(System.Xml.XmlDocument,System.String)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLHelper.SaveXmlDoc(System.Xml.XmlDocument,System.String)">
             <summary>
             将XmlDocument保存为文件
             </summary>
             <param name="xmlDoc"></param>
             <param name="xmlDocPath">保存路径</param>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLSerializationHelper.XMLFileDeserialize``1(System.String)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLSerializationHelper.XMLFileDeserialize``1(System.String)">
             <summary>
             xml文件反序列化
             </summary>
@@ -3641,7 +3898,7 @@
             <param name="xmlfilepath"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLSerializationHelper.XMLStringDeserialize``1(System.String)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLSerializationHelper.XMLStringDeserialize``1(System.String)">
             <summary>
             xml字符串反序列化
             </summary>
@@ -3649,7 +3906,7 @@
             <param name="xml"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLSerializationHelper.XMLStreamDeserialize``1(System.IO.Stream)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLSerializationHelper.XMLStreamDeserialize``1(System.IO.Stream)">
             <summary>
             xml流反序列化
             </summary>
@@ -3657,7 +3914,7 @@
             <param name="stream"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLSerializationHelper.XMLStringSerializer``1(``0)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLSerializationHelper.XMLStringSerializer``1(``0)">
             <summary>
             序列化到字符串
             </summary>
@@ -3665,7 +3922,7 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLSerializationHelper.XMLStreamSerializer``1(``0)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLSerializationHelper.XMLStreamSerializer``1(``0)">
             <summary>
             序列化到流
             </summary>
@@ -3673,7 +3930,7 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:WYQDoNet.DoNet.Xml.XMLSerializationHelper.XMLFileSerializer``1(``0,System.String)">
+        <member name="M:WYQDoNet.DoNet.XmlUtils.XMLSerializationHelper.XMLFileSerializer``1(``0,System.String)">
             <summary>
             序列化到文件
             </summary>
