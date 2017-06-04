@@ -3044,6 +3044,85 @@
             <param name="it"></param>
             <returns></returns>
         </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.JsonSerializationHelper.JsonStringSerialize(System.Object)">
+            <summary>
+            将对象序列化为JSON格式
+            </summary>
+            <param name="o">对象</param>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.JsonSerializationHelper.JsonStringDeserialize``1(System.String)">
+            <summary>
+            解析JSON字符串生成对象实体
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">json字符串(eg.{"ID":"112","Name":"石子儿"})</param>
+            <returns>对象实体</returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.JsonSerializationHelper.JsonFileSerialize(System.Object,System.String)">
+            <summary>
+            将对象序列化为JSON格式
+            </summary>
+            <param name="o">对象</param>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.JsonSerializationHelper.JsonFileDeserialize``1(System.String)">
+            <summary>
+            解析JSON字符串生成对象实体
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="json">json字符串(eg.{"ID":"112","Name":"石子儿"})</param>
+            <returns>对象实体</returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.XmlSerializationHelper.XmlFileDeserialize``1(System.String)">
+            <summary>
+            xml文件反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xmlfilepath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.XmlSerializationHelper.XmlStringDeserialize``1(System.String)">
+            <summary>
+            xml字符串反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.XmlSerializationHelper.XmlStreamDeserialize``1(System.IO.Stream)">
+            <summary>
+            xml流反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.XmlSerializationHelper.XmlStringSerializer``1(``0)">
+            <summary>
+            序列化到字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.XmlSerializationHelper.XmlStreamSerializer``1(``0)">
+            <summary>
+            序列化到流
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WYQDoNet.DoNet.IOUtils.SerializationUtils.XmlSerializationHelper.XmlFileSerializer``1(``0,System.String)">
+            <summary>
+            序列化到文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="xmlfilepath"></param>
+            <returns>成功返回true</returns>
+        </member>
         <member name="M:WYQDoNet.DoNet.IOUtils.StreamUtils.SteamSplitMergeHelper.CopyStreamPart(System.IO.Stream,System.IO.Stream,System.Int64,System.Int64,System.Int64,System.Int32)">
             <summary>
             拷贝部分输入流到输出流的指定位置

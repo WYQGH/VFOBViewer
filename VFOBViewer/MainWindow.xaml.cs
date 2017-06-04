@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 using WYQDoNet.DoNet.IOUtils.DirectoryUtils;
 using WYQDoNet.DoNet.IOUtils.ObjectUtils;
+using WYQDoNet.DoNet.IOUtils.SerializationUtils;
 
 namespace VFOBViewer
 {
@@ -64,7 +65,10 @@ namespace VFOBViewer
             {
                 ShowDialog = false;
                 FileDirDialog_FOB.TextBoxPath.Text = FOBPath;
-                fob = ObjectSerializationHelper.BinaryDeserialize<FileObj>(FOBPath);
+                if (FOBPath.EndsWith("vfob"))
+                    fob = ObjectSerializationHelper.BinaryDeserialize<FileObj>(FOBPath);
+                if (FOBPath.EndsWith("jvfob"))
+                    fob = JsonSerializationHelper.JsonFileDeserialize<FileObj>(FOBPath);
                 CurrentPath = fob.Root;
             }
             if (ShowDialog)
@@ -87,8 +91,10 @@ namespace VFOBViewer
         private void TextBoxPath_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            fob = ObjectSerializationHelper.BinaryDeserialize<FileObj>(tb.Text);
-
+            if (tb.Text.EndsWith("vfob"))
+                fob = ObjectSerializationHelper.BinaryDeserialize<FileObj>(tb.Text);
+            if (tb.Text.EndsWith("jvfob"))
+                fob = JsonSerializationHelper.JsonFileDeserialize<FileObj>(tb.Text);
             CurrentPath = fob.Root;
         }
 
@@ -207,11 +213,12 @@ namespace VFOBViewer
             if (string.IsNullOrWhiteSpace(path)) return;
             string[] dirs = path.Trim().Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
 
-            string savePath = FileDirDialog_NeedFOB.SaveFileDialog("选择保存文件位置...", "VFOB目录|*.vfob");
+            string savePath = FileDirDialog_NeedFOB.SaveFileDialog("选择保存文件位置...", "VFOB目录|*.vfob|JVFOB目录|*.jvfob");
             if (string.IsNullOrWhiteSpace(savePath)) return;
-            
-             DirectoryHelper.SaveDirFilesBinFile(@"Root:\",dirs, savePath);
-
+            if (savePath.EndsWith("vfob"))
+                DirectoryHelper.SaveDirFilesBinFile(@"Root:\", dirs, savePath);
+            if (savePath.EndsWith("jvfob"))
+                DirectoryHelper.SaveDirFilesJsonFile(@"Root:\", dirs, savePath);
             MessageBox.Show("序列化完成!!!");
         }
 

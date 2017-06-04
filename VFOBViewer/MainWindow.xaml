@@ -30,7 +30,7 @@
                 </ScrollViewer>
             </Grid>
             <Grid Width="800">
-                <Commons:FileDirDialog x:Name="FileDirDialog_FOB" LabelWidth="60" TextBoxMarginLeft="60" DialogFileType="otFOB目录|vfob" Width="560" LabelContent="VFOB：" HorizontalAlignment="Left" Margin="5,0,0,0" />
+                <Commons:FileDirDialog x:Name="FileDirDialog_FOB" LabelWidth="60" TextBoxMarginLeft="60" DialogFileType="otFOB目录|vfob||JFOB目录|jvfob" Width="560" LabelContent="VFOB：" HorizontalAlignment="Left" Margin="5,0,0,0" />
 
                 <Button x:Name="Button_Parent" Content="上 翻" HorizontalAlignment="Right" Width="50" Height="20" FontSize="12" Padding="0" Foreground="#FFFF8300" BorderBrush="#FFFCCDCD" Background="{x:Null}" Margin="0,0,5,0" Click="Button_Parent_Click"/>
                 <Button x:Name="Button_Root" Content="根 部" HorizontalAlignment="Right" Width="50" Margin="0,0,80,0" Height="20" FontSize="12" Padding="0" Background="{x:Null}" Foreground="#FFFF1700" BorderBrush="#FFF1C8C8" Click="Button_Root_Click" />
