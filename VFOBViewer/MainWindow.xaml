@@ -39,6 +39,7 @@
             <Grid Width="800" Margin="0,5,0,0">
                 <Commons:FileDirDialog x:Name="FileDirDialog_NeedFOB" DialogFileType="fa" Width="560" LabelContent="序列化：" LabelWidth="60" TextBoxMarginLeft="60" HorizontalAlignment="Left" Margin="5,0,0,0" />
                 <Button x:Name="Button_StartFOB" Content="开始序列化" HorizontalAlignment="Right" Width="75" Height="20" FontSize="12" Padding="0" Foreground="Red" BorderBrush="#FFC9FF00" Background="{x:Null}" Margin="0,0,135,0" Click="Button_StartFOB_Click"  />
+                <Button x:Name="Button_SaveFOB" Content="保存" HorizontalAlignment="Right" Width="50" Height="20" FontSize="12" Padding="0" Foreground="#FF3ED85E" BorderBrush="#FFB1E6EC" Background="{x:Null}" Margin="0,3,80,5.333" Click="Button_SaveFOB_Click"   />
 
             </Grid>
         </StackPanel>

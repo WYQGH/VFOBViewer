@@ -230,5 +230,17 @@ namespace VFOBViewer
             else
                 AddFileModels(fob.SearchDirFiles(TextBox_Search.Text, false));
         }
+
+        private void Button_SaveFOB_Click(object sender, RoutedEventArgs e)
+        {
+            if (fob == null) return;
+            string savePath = FileDirDialog_NeedFOB.SaveFileDialog("选择保存文件位置...", "VFOB目录|*.vfob|JVFOB目录|*.jvfob");
+            if (string.IsNullOrWhiteSpace(savePath)) return;
+            if (savePath.EndsWith("vfob"))
+                BinarySerializationHelper.BinaryFileSerialize<FileObj>(fob, savePath);
+            if (savePath.EndsWith("jvfob"))
+                JsonSerializationHelper.JsonFileSerialize(fob, savePath);
+            MessageBox.Show("保存成功!!!");
+        }
     }
 }
